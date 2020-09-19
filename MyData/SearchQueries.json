@@ -1,0 +1,150 @@
+[
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-06-28T19:26:07.423Z[UTC]",
+    "searchQuery" : "work",
+    "searchInteractionURIs" : [
+      "spotify:track:7xVLFuuYdAvcTfcP3IG3dS"
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-07-05T20:16:54.540Z[UTC]",
+    "searchQuery" : "tones ",
+    "searchInteractionURIs" : [
+      "spotify:artist:2NjfBq1NflQcKSeiDooVjY"
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-07-28T13:34:48.998Z[UTC]",
+    "searchQuery" : "super",
+    "searchInteractionURIs" : [
+      ""
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-08-03T03:51:50.521Z[UTC]",
+    "searchQuery" : "ordinary",
+    "searchInteractionURIs" : [
+      "spotify:track:2ZA4uMlSZjaoWGFqP1tsLI"
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-08-10T00:13:43.045Z[UTC]",
+    "searchQuery" : "nice legs",
+    "searchInteractionURIs" : [
+      "spotify:track:3rq56gdmufzyJAyGK9VMNs"
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-08-12T14:30:20.322Z[UTC]",
+    "searchQuery" : "tje monks",
+    "searchInteractionURIs" : [
+      "spotify:artist:39NiHk1zMC2u3vtrTj5rKz"
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-08-24T23:08:38.788Z[UTC]",
+    "searchQuery" : "cott",
+    "searchInteractionURIs" : [
+      "spotify:playlist:1hVyKLzah0iqG6SS8T1JwC"
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-08-28T22:41:24.041Z[UTC]",
+    "searchQuery" : "shia",
+    "searchInteractionURIs" : [
+      "spotify:track:3VMzQ4rh7FtfSuyjHIcuZR"
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-08-29T00:49:27.982Z[UTC]",
+    "searchQuery" : "man of the year",
+    "searchInteractionURIs" : [
+      "spotify:track:5SsR3wtCOafDmZgvIdRhSm"
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-08-29T00:55:30.865Z[UTC]",
+    "searchQuery" : "move bitch",
+    "searchInteractionURIs" : [
+      "spotify:track:1Q9b6CeMcDuO0uq5OJCrqu",
+      "spotify:track:1Q9b6CeMcDuO0uq5OJCrqu"
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-08-29T01:11:40.636Z[UTC]",
+    "searchQuery" : "paran",
+    "searchInteractionURIs" : [
+      "spotify:track:1Y373MqadDRtclJNdnUXVc",
+      "spotify:track:0w2piYWj1F2bzUftzGJgK9",
+      ""
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-08-29T01:33:50.016Z[UTC]",
+    "searchQuery" : "all faa",
+    "searchInteractionURIs" : [
+      "spotify:track:5SkRLpaGtvYPhw02vZhQQ9",
+      "spotify:track:5SkRLpaGtvYPhw02vZhQQ9"
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-08-29T02:03:50.851Z[UTC]",
+    "searchQuery" : "hum",
+    "searchInteractionURIs" : [
+      "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+      ""
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-08-29T02:07:44.361Z[UTC]",
+    "searchQuery" : "las t c",
+    "searchInteractionURIs" : [
+      "spotify:track:7iOhWWYjhhQiXzF4o4HhXN"
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-09-01T17:48:02.499Z[UTC]",
+    "searchQuery" : "classical s",
+    "searchInteractionURIs" : [
+      ""
+    ]
+  },
+  {
+    "platform" : "ANDROID_ARM",
+    "searchTime" : "2020-09-01T17:48:11.910Z[UTC]",
+    "searchQuery" : "acoustic study",
+    "searchInteractionURIs" : [
+      "spotify:playlist:4cNxVepJU1DDGRepzKerQG",
+      "spotify:playlist:6eUjBNh2iwaKiB5pivNLbO"
+    ]
+  },
+  {
+    "platform" : "WEB",
+    "searchTime" : "2020-09-18T01:49:27.646Z[UTC]",
+    "searchQuery" : "biggest playlist",
+    "searchInteractionURIs" : [
+    ]
+  },
+  {
+    "platform" : "WEB",
+    "searchTime" : "2020-09-18T01:54:30.927Z[UTC]",
+    "searchQuery" : "biggest playlist",
+    "searchInteractionURIs" : [
+    ]
+  }
+]
