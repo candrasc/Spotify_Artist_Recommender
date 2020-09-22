@@ -34,7 +34,7 @@ The result was basically that only one of the clusters was significantly differe
 
 The signficant cluster had high dancebility, high energy, and very low instrumentality. It also had a mean likes of 0.4 (not great). These songs are likely electronic dance music.
 
-![s_score](Images\s_score.png)
+![](Images/s_score.png.PNG)
 
 ### Next steps:
 
