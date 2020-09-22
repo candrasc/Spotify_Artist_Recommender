@@ -1,6 +1,6 @@
 # Spotify_Project
- 
-In this project, I use the Spotipy API to collect songs and their features. I have gathered both my streaming history as well as 5000 songs from a large Spotify playlist. 
+
+In this project, I use the Spotipy API to collect songs and their features. I have gathered both my streaming history as well as 5000 songs from a large Spotify playlist.
 
 I have used the Spotipy API (https://spotipy.readthedocs.io/en/2.16.0/) to collect data on my streaming history as well as a collection of random songs.
 
@@ -21,27 +21,29 @@ Useful resources for using the API that I would have been lost without are linke
 ### Feature Selection and Engineering
 Here I start to dig into the songs and their features. At the bottom of this readme, and at the start of this file you can find the provided features and their discriptions.
 
-The first important step I take is to define what songs I actually 'like'. I needed a broad criteria that I could apply to all of my songs as I don't want to manually rate all of my songs. 
+The first important step I take is to define what songs I actually 'like'. I needed a broad criteria that I could apply to all of my songs as I don't want to manually rate all of my songs.
 
 All of the information I had for my streaming history was the length of time I played the song each time I played it. I then created my own features called "Skip", "Play", and "Like" so that I could better assess my sentiment towards a given song.
 
-"Skip" was defined as playing the song for less than a minute, while "Play" was defined as letting play for more than a minute. I then defined a "Like" as any song that had a 75% play rate. 
+"Skip" was defined as playing the song for less than a minute, while "Play" was defined as letting play for more than a minute. I then defined a "Like" as any song that had a 75% play rate.
 
 ### Clustering
 The next step to take was to learn more about my data and song choice through clustering. (I have chosen KMeans to start, but it did not yield exceptional results in terms of the Elbow method or Silhouette score, so I will likely try another method soon).
 
 The result was basically that only one of the clusters was significantly different than the others with a Silhouette score of 0.65, while the other clusters were scoring less than 0.3 for the most part.
 
-The signficant cluster had high dancebility, high energy, and very low instrumentality. It also had a mean likes of 0.4 (not great). These songs are likely electronic dance music. 
+The signficant cluster had high dancebility, high energy, and very low instrumentality. It also had a mean likes of 0.4 (not great). These songs are likely electronic dance music.
 
-### Next steps: 
+![s_score](C:\Users\charl\Python\GitHub Projects\Spotify_Project\MyData\s_score.png)
 
-1) Analyze my 5000 song playlist and see if similar clusters emerge. 
+### Next steps:
+
+1) Analyze my 5000 song playlist and see if similar clusters emerge.
 
 2) Train a model on my streaming history and then apply it to the large playlist to predict if I will like certain songs.
      - Will potentially have to train multiple models for different genres (one for the Electronic Dance music, another for all others)
 
-3) Create a recommender, where you can enter a song, and based on similarity of features, a song will be suggested for you. 
+3) Create a recommender, where you can enter a song, and based on similarity of features, a song will be suggested for you.
 
 
 ### Feature Descriptions:
