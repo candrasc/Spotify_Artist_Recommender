@@ -1,4 +1,4 @@
-# Spotify_Project
+# Spotify_Song_Clustering_&_Recommendation
 
 In this project, I use the Spotipy API to collect songs and their features. I have gathered both my streaming history as well as 5000 songs from a large Spotify playlist.
 
