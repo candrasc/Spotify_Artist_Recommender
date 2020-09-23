@@ -19,11 +19,11 @@ Useful resources for using the API that I would have been lost without are linke
 ## File 2: Spotify Data Exploration
 
 ### Feature Selection and Engineering
-Here I start to dig into the songs and their features. At the bottom of this readme, and at the start of this file you can find the provided features and their discriptions.
+Here I start to dig into the songs and their features. At the bottom of this readme, and at the start of this file you can find the provided features and their descriptions.
 
 The first important step I take is to define what songs I actually 'like'. I needed a broad criteria that I could apply to all of my songs as I don't want to manually rate all of my songs.
 
-All of the information I had for my streaming history was the length of time I played the song each time I played it. I then created my own features called "Skip", "Play", and "Like" so that I could better assess my sentiment towards a given song.
+All of the information I had for my streaming history was the length of time I played the song for each time that I played it. I then created my own features called "Skip", "Play", and "Like" so that I could better assess my sentiment towards a given song.
 
 "Skip" was defined as playing the song for less than a minute, while "Play" was defined as letting play for more than a minute. I then defined a "Like" as any song that had a 75% play rate.
 
