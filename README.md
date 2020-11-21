@@ -10,9 +10,9 @@ At this phase in the project, I have only done some initial exploration and clus
 
 ## File 1: Spotify Song Collection
 
-In this document, I outline how you can get access to your songs and others with the Spotipy API. The data comes in a json file format, so there is some work required to get it into a nice and pretty dataframe.
+In this document, I outline how you can get access to your songs and song features with the Spotipy API. The data comes in a json file format with a couple issues that need to be worked around.
 
-When you initially request your personal data from Spotify, the features of the songs are not actually included. We need to use the API, as I have outlined here, to retrieve this information and put it into one dataframe.
+When you initially request your personal data from Spotify (via your online profile... NOT through the Spotipy Client), the features of the songs are not actually included. We need to use the API, as I have outlined here, to retrieve this information and put it into one dataframe.
 
 Useful resources for using the API that I would have been lost without are linked directly in the notebook.
 
@@ -51,7 +51,7 @@ acousticness — how acoustic
 
 danceability — self-explanatory
 
-energy — how 'fast, loud an noisy'
+energy — how 'fast, loud and noisy'
 
 instrumentalness — the less vocals, the higher
 
