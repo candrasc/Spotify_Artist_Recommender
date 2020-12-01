@@ -36,15 +36,6 @@ The signficant cluster had high dancebility, high energy, and very low instrumen
 
 ![](Images/s_score.png.PNG)
 
-### Next steps:
-
-1) Analyze my 5000 song playlist and see if similar clusters emerge.
-
-2) Train a model on my streaming history and then apply it to the large playlist to predict if I will like certain songs.
-     - Will potentially have to train multiple models for different genres (one for the Electronic Dance music, another for all others)
-
-3) Create a recommender, where you can enter a song, and based on similarity of features, a song will be suggested for you.
-
 
 ### Feature Descriptions:
 acousticness — how acoustic
