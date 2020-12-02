@@ -1,10 +1,12 @@
 # Spotify_Song_Clustering_&_Recommendation
 
-In this project, I use the Spotipy API to collect songs and their features. I have gathered both my streaming history as well as 5000 songs from a large Spotify playlist.
+In this project, I use the Spotipy API to collect songs and their features. I have gathered both my streaming history as well as 5000 songs from a large Spotify playlist (https://spotipy.readthedocs.io/en/2.16.0/)
 
-I have used the Spotipy API (https://spotipy.readthedocs.io/en/2.16.0/) to collect data on my streaming history as well as a collection of random songs.
+I perform some brief clustering and other analysis on these songs and features. 
 
-At this phase in the project, I have only done some initial exploration and clustering of my personal streaming history to find out more about what I like. In the future, I am going to build a recommender so that I can recommend songs to myself from the 5000 song library.
+I then take all of the artists (500+) and get their top 10 songs. I retrieve the features for all of these songs and then find the mean of features for each artists.
+
+I will now create an application that when given an artist name, will find that artists mean features and recommend other artists based on the cosign similarity between the searched artist and the others I have generated beforehand. 
 
 -----------
 
