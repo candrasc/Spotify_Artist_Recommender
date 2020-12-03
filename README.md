@@ -4,7 +4,7 @@ In this project, I use the Spotipy API to collect songs and their features. I ha
 
 I perform some brief clustering and other analysis on these songs and features. 
 
-I then take all of the artists (500+) and get their top 10 songs. I retrieve the features for all of these songs and then find the mean of features for each artists.
+I then take all of the artists (1700+) and get their top 10 songs. I retrieve the features for all of these songs and then find the mean of features for each artists.
 
 I will now create an application that when given an artist name, will find that artists mean features and recommend other artists based on the cosign similarity between the searched artist and the others I have generated beforehand. 
 
