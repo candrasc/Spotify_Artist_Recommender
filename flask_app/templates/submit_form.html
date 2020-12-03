@@ -1,8 +1,105 @@
-{% from "_formhelpers.html" import render_field %}
-<form method=post>
-  <dl>
-    {{ render_field(form.artist_name) }}
-    {{ render_field(form.num_recos) }}
-  </dl>
-  <p><input type=submit value=Register>
-</form>
+<!DOCTYPE html>
+<html>
+  <title>How Accurate are Equity Analyst Recos?</title>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <style>
+      html, body {
+      display: flex;
+
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      }
+      form {
+      border: 5px solid #f1f1f1;
+      }
+      input[type=text], input[type=password] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+      .icon {
+      font-size: 110px;
+      display: flex;
+      justify-content: center;
+      color: #4286f4;
+      }
+      button {
+      background-color: #4286f4;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: grab;
+      width: 48%;
+      }
+      h1 {
+      text-align:center;
+      font-size:18;
+      }
+      h3 {
+      text-align:center;
+      font-size:10;
+      }
+      button:hover {
+      opacity: 0.8;
+      }
+      .formcontainer {
+      text-align: center;
+      margin: 24px 50px 12px;
+      width: 450px;
+      }
+      .container {
+      padding: 16px 0;
+      text-align:left;
+      }
+      .container_button {
+      padding: 16px 0;
+      text-align:center;
+      }
+      notes {
+      text-align:center;
+      font-size:10;
+      }
+      span.psw {
+      float: right;
+      padding-top: 0;
+      padding-right: 15px;
+      }
+      /* Change styles for span on extra small screens */
+      @media screen and (max-width: 300px) {
+      span.psw {
+      display: block;
+      float: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form method ="POST">
+      <h1>Spotify Artist Recommender</h1>
+      <h3>Find similar artists to your favourites!</h3>
+      <div class="icon">
+        <i class="fab fa-spotify"></i>
+      </div>
+      <div class="formcontainer">
+      <div class="container">
+        <label for="artist_name"><strong>Enter Artist Name</strong></label>
+        <input type="text" id="artist_name" name="artist_name" placeholder="Led Zeppelin">
+
+
+      <div class="container">
+        <label for="num_recos"><strong>Enter Multiple Return Windows (Optional)</strong></label>
+        <input type="text" id="num_recos" name="num_recos" placeholder="5">
+
+      <div class="container_button">
+
+      <button type="Submit"><strong>Submit</strong></button>
+        </div>
+    </form>
+  </body>
+</html>
