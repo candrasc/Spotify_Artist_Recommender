@@ -72,22 +72,22 @@ class ArtistEvaluator:
         artist_id, artist_name = self._get_artist_id(artist_name)
         top_tracks = self._get_top_tracks(artist_id)
         df = self._get_song_features(top_tracks)
-        artist_vector = df.mean()
+        artist_vector = df.mean().values
         artist_vector = self.scaler.transform(artist_vector)
 
-        return artist_vector
+        return artist_vector, artist_name
 
     def find_similar_artists(self, artist_name, number_recos = 5):
         """
         Called at runtime by the user to retrieve their artist recommendations
         Combines all of the above functions
         """
-        artist_vector = self.get_artist_song_feats(artist_name)
+        artist_vector, artist_name = self.get_artist_song_feats(artist_name)
 
         similarity_dic = {}
         for i in len(self.artist_feats):
-            score = cosine_similarity([artist_vector,self.artist_feats.iloc[i,2:])
+            score = cosine_similarity([artist_vector],[self.artist_feats.iloc[i,2:].values])
             similarity_dic[self.artist_feats['artist_name'][i]] = score
 
         top_vals = dict(sorted(similarity_dic.items(), key = itemgetter(1), reverse = True)[:number_recos])
-        return top_vals
+        return top_vals, artist_name

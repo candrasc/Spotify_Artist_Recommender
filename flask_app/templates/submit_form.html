@@ -1,0 +1,8 @@
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.artist_name) }}
+    {{ render_field(form.num_recos) }}
+  </dl>
+  <p><input type=submit value=Register>
+</form>
