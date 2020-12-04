@@ -9,9 +9,9 @@ from operator import itemgetter
 
 class ArtistEvaluator:
     def __init__(self):
-        self.artist_feats = pd.read_csv('Data/artist_features.csv')
+        self.artist_feats = pd.read_csv('MyData/artist_features.csv')
         self.sp = self._set_sp_creds()
-        self.scaler = joblib.load('Data/artist_feature_scaler.save')
+        self.scaler = joblib.load('MyData/artist_feature_scaler.save')
 
     def _set_sp_creds(self):
         CLIENT_ID = os.environ.get('SPOTIFY_CLIENT_ID')
@@ -20,16 +20,17 @@ class ArtistEvaluator:
         sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
         return sp
 
-    def _get_artist_id(artist_name):
+    def _get_artist_id(self, artist_name):
         try:
             results = self.sp.search(q='artist:' + artist_name, type='artist')
             items = results['artists']['items']
             artist_id = items[0]['id']
             artist_name = items[0]['name']
+
         except:
             print('Artist not found')
-
         return artist_id, artist_name
+
 
 
     def _get_top_tracks(self, artist_id):
@@ -37,7 +38,7 @@ class ArtistEvaluator:
         Retrieve features for an artists top 10 tracks
         """
 
-        top = self.sp.artist_top_tracks(artist, country='US')['tracks']
+        top = self.sp.artist_top_tracks(artist_id, country='US')['tracks']
         top_tracks = []
         for track in top:
             top_tracks.append(track['id'])
@@ -73,7 +74,7 @@ class ArtistEvaluator:
         top_tracks = self._get_top_tracks(artist_id)
         df = self._get_song_features(top_tracks)
         artist_vector = df.mean().values
-        artist_vector = self.scaler.transform(artist_vector)
+        artist_vector = self.scaler.transform([artist_vector])
 
         return artist_vector, artist_name
 
@@ -85,8 +86,8 @@ class ArtistEvaluator:
         artist_vector, artist_name = self.get_artist_song_feats(artist_name)
 
         similarity_dic = {}
-        for i in len(self.artist_feats):
-            score = cosine_similarity([artist_vector],[self.artist_feats.iloc[i,2:].values])
+        for i in range(len(self.artist_feats)):
+            score = cosine_similarity(artist_vector,[self.artist_feats.iloc[i,3:].values])
             similarity_dic[self.artist_feats['artist_name'][i]] = score
 
         top_vals = dict(sorted(similarity_dic.items(), key = itemgetter(1), reverse = True)[:number_recos])

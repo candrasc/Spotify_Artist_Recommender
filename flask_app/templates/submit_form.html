@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <title>How Accurate are Equity Analyst Recos?</title>
+  <title>Artist Recommender</title>
   <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
@@ -27,10 +27,10 @@
       font-size: 110px;
       display: flex;
       justify-content: center;
-      color: #4286f4;
+      color: #19C151;
       }
       button {
-      background-color: #4286f4;
+      background-color: #19C151;
       color: white;
       padding: 14px 0;
       margin: 10px 0;
@@ -89,16 +89,18 @@
       <div class="formcontainer">
       <div class="container">
         <label for="artist_name"><strong>Enter Artist Name</strong></label>
-        <input type="text" id="artist_name" name="artist_name" placeholder="Led Zeppelin">
+        <input type="text" id="artist_name" name="artist_name" placeholder="Kanye West">
 
 
       <div class="container">
-        <label for="num_recos"><strong>Enter Multiple Return Windows (Optional)</strong></label>
+        <label for="num_recos"><strong>Enter Number of Recommendations</strong></label>
         <input type="text" id="num_recos" name="num_recos" placeholder="5">
 
       <div class="container_button">
 
       <button type="Submit"><strong>Submit</strong></button>
+      <div class="notes">
+      <label>All recommendations are based on song attributes provided through Spotify's Web API endpoints</label>
         </div>
     </form>
   </body>
