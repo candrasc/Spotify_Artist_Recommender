@@ -1,4 +1,8 @@
-# Spotify_Song_Clustering_&_Recommendation
+# Spotify_Artist_Recommender
+
+Check out the application here: http://spotifyartistrecommender-v2.eba-mnhqin2v.us-east-2.elasticbeanstalk.com/
+---
+## Summary
 
 In this project, I use the Spotipy API to collect songs and their features. I have gathered both my streaming history as well as 5000 songs from a large Spotify playlist (https://spotipy.readthedocs.io/en/2.16.0/)
 
