@@ -6,13 +6,24 @@
 
 In this project, I use the Spotipy API to collect songs and their features. I have gathered both my streaming history as well as 5000 songs from a large Spotify playlist (https://spotipy.readthedocs.io/en/2.16.0/)
 
-I perform some brief clustering and other analysis on these songs and features. 
+I then take all of the artists (1700+) in these playlists and pulled their top 10 songs. I retrieve the features for all of these songs and then find the mean of features for each artists.
 
-I then take all of the artists (1700+) and get their top 10 songs. I retrieve the features for all of these songs and then find the mean of features for each artists.
+Each artists features are normalized with a MinMax scaler and stored in a csv. The scaler is also pickled and stored for use in the application.
 
-I will now create an application that when given an artist name, will find that artists mean features and recommend other artists based on the cosign similarity between the searched artist and the others I have generated beforehand. 
+You can then type in any Spotify artist, their features will be retrieved, aggregated and normalized. They will then be compared to every artist in the 1700 we have to find the most similar and recommend you a song!
+
+The application is built on Flask and is hosted on AWS Elastic Beastalk.
 
 -----------
+## More
+
+The scope and direction of this project changed a few times, so not all of the notebooks are directly related to the Song Recommender. If you want to see some visualization and exploratory analysis such as clustering, check out the Spotify Data Exploration File. The Spotify Song Collection file also has some good stuff on using the spotipy api that allows access to the spotify web API endpoints.
+
+However, the most important files for the application are 
+
+1) flask_app (where everything related to the application is coded and stored)
+
+2) artist_feature_collection, where we create our artist feature dataset
 
 ## File 1: Spotify Song Collection
 
@@ -32,6 +43,8 @@ The first important step I take is to define what songs I actually 'like'. I nee
 All of the information I had for my streaming history was the length of time I played the song for each time that I played it. I then created my own features called "Skip", "Play", and "Like" so that I could better assess my sentiment towards a given song.
 
 "Skip" was defined as playing the song for less than a minute, while "Play" was defined as letting play for more than a minute. I then defined a "Like" as any song that had a 75% play rate.
+
+This feature engineering was a product of my first idea to create a recommender just for myself, which I later decided against.
 
 ### Clustering
 The next step to take was to learn more about my data and song choice through clustering. (I have chosen KMeans to start, but it did not yield exceptional results in terms of the Elbow method or Silhouette score, so I will likely try another method soon).
