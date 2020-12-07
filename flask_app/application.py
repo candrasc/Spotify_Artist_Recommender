@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import pandas as pd
-from helpers import ArtistEvaluator
+from ArtistRecommender import ArtistEvaluator
 import os
 import numpy as np
 from form_classes import SubmissionForm
@@ -12,7 +12,7 @@ application.config['SECRET_KEY'] = os.environ.get('SPOTIFY_SECRET_ID')
 @application.after_request
 def add_header(response):
     """
-    Clear cache to reset displayed values 
+    Clear cache to reset displayed values
     """
     response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
     response.headers['Cache-Control'] = 'public, max-age=0'
@@ -39,4 +39,4 @@ def get_info():
     return artist_name, num_recos
 
 if __name__ == '__main__':
-	application.run(debug=False, host= '0.0.0.0', port=8080)
+	application.run(debug=True, host= '0.0.0.0', port=8080)
