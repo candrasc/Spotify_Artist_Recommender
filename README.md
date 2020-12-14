@@ -25,7 +25,7 @@ However, the most important files for the application are
 
 2) artist_feature_collection, where we create our artist feature dataset
 
-## File 1: Spotify Song Collection
+### Bonus File 1: Spotify Song Collection
 
 In this document, I outline how you can get access to your songs and song features with the Spotipy API. The data comes in a json file format with a couple issues that need to be worked around.
 
@@ -33,9 +33,9 @@ When you initially request your personal data from Spotify (via your online prof
 
 Useful resources for using the API that I would have been lost without are linked directly in the notebook.
 
-## File 2: Spotify Data Exploration
+### Bonus File 2: Spotify Data Exploration
 
-### Feature Selection and Engineering
+#### Feature Selection and Engineering
 Here I start to dig into the songs and their features. At the bottom of this readme, and at the start of this file you can find the provided features and their descriptions.
 
 The first important step I take is to define what songs I actually 'like'. I needed a broad criteria that I could apply to all of my songs as I don't want to manually rate all of my songs.
@@ -46,7 +46,7 @@ All of the information I had for my streaming history was the length of time I p
 
 This feature engineering was a product of my first idea to create a recommender just for myself, which I later decided against.
 
-### Clustering
+#### Clustering
 The next step to take was to learn more about my data and song choice through clustering. (I have chosen KMeans to start, but it did not yield exceptional results in terms of the Elbow method or Silhouette score, so I will likely try another method soon).
 
 The result was basically that only one of the clusters was significantly different than the others with a Silhouette score of 0.65, while the other clusters were scoring less than 0.3 for the most part.
