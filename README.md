@@ -14,6 +14,11 @@ You can then type in any Spotify artist, their features will be retrieved, aggre
 
 The application is built on Flask and is hosted on AWS Elastic Beastalk.
 
+## Results of Recommender:
+The recommendations are definitely not perfect, but they are pretty good! You will notice that high level attributes such as genre are picked up on fairly well even though they are not explicitly given as features. 
+
+Of course, if I had access to other users data and streaming history, I could build a much more comprehensive recommender, but I hope you enjoy what I have created for now :) 
+
 -----------
 ## More
 
