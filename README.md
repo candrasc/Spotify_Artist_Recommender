@@ -4,7 +4,7 @@
 ---
 ## Summary
 
-In this project, I use the Spotipy API to collect songs and their features. I have gathered both my streaming history as well as 5000 songs from a large Spotify playlist (https://spotipy.readthedocs.io/en/2.16.0/)
+In this project, I use the Spotipy API to access Sportify's developer web endpoints to collect songs and their features. I have gathered both my streaming history as well as 5000 songs from a large Spotify playlist (https://spotipy.readthedocs.io/en/2.16.0/)
 
 I then take all of the artists (1700+) in these playlists and pulled their top 10 songs. I retrieve the features for all of these songs and then find the mean of features for each artists.
 
