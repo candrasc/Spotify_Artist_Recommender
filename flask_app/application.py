@@ -46,7 +46,11 @@ def get_recos():
 
 def get_info():
     artist_name = request.form['artist_name']
-    num_recos = int(request.form['num_recos'])
+    num_recos = request.form['num_recos'].replace(" ", "")
+    if num_recos == "":
+        num_recos = 5
+    else:
+        num_recos = int(num_recos)
     return artist_name, num_recos
 
 if __name__ == '__main__':
