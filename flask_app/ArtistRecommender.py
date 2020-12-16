@@ -26,10 +26,11 @@ class ArtistEvaluator:
             items = results['artists']['items']
             artist_id = items[0]['id']
             artist_name = items[0]['name']
+            return artist_id, artist_name
 
         except:
             print('Artist not found')
-        return artist_id, artist_name
+
 
 
 
@@ -62,7 +63,7 @@ class ArtistEvaluator:
             df_temp = self._create_feature_df(spot_feats)
             df = df.append(df_temp)
 
-        df.drop(columns = ['key','mode'], inplace=True)
+        df.drop(columns = ['mode'], inplace=True)
         return df
 
     def get_artist_song_feats(self, artist_name):

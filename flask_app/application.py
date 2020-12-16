@@ -26,11 +26,22 @@ def open_form():
 def get_recos():
     ae = ArtistEvaluator()
     artist_name, num_recos = get_info()
-    top_vals, artist_name = ae.find_similar_artists(artist_name, num_recos)
-    top_vals = [(k, np.round(float(v),3)) for k, v in top_vals.items()]
+    try:
+        top_vals, artist_name = ae.find_similar_artists(artist_name, num_recos)
+        for key in top_vals.keys():
+            if key == artist_name:
+                top_vals, artist_name = ae.find_similar_artists(artist_name, num_recos+1)
+                top_vals.pop(key, None)
 
-    return render_template('results_good.html', name = 'results',
-                            recos = top_vals, artist_name = artist_name)
+        top_vals = [(k, np.round(float(v),3)) for k, v in top_vals.items()]
+
+        return render_template('results_good.html', name = 'results',
+                                recos = top_vals, artist_name = artist_name)
+
+    except:
+        return render_template('error_page.html', name = 'error')
+
+
 
 
 def get_info():
