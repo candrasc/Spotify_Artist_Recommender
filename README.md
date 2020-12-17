@@ -10,7 +10,7 @@ I then take all of the artists (1700+) in these playlists and pulled their top 1
 
 Each artists features are normalized with a MinMax scaler and stored in a csv. The scaler is also pickled and stored for use in the application.
 
-You can then type in any Spotify artist, their features will be retrieved, aggregated and normalized. They will then be compared to every artist in the 1700+ artist data set we have created to find the most similar and recommend you a song! Cosine similarity is used to compare artist vectors. 
+You can then type in any Spotify artist, their features will be retrieved, aggregated and normalized. They will then be compared to every artist in the 1700+ artist data set I have created to find the most similar and recommend you artists! Cosine similarity is used to compare artist vectors. 
 
 The application is built on Flask and is hosted on AWS Elastic Beastalk.
 
