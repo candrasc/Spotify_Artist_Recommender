@@ -8,16 +8,16 @@ In this project, I use the Spotipy API to access Sportify's developer web endpoi
 
 I then take all of the artists (1700+) in these playlists and pulled their top 10 songs. I retrieve the features for all of these songs and then find the mean of features for each artists.
 
-Each artists features are normalized with a MinMax scaler and stored in a csv. The scaler is also pickled and stored for use in the application.
+Each artists' features are normalized with a MinMax scaler and stored in a csv. The scaler is also pickled and stored for use in the application.
 
-You can then type in any Spotify artist, their features will be retrieved, aggregated and normalized. They will then be compared to every artist in the 1700+ artist data set I have created to find the most similar and recommend you artists! Cosine similarity is used to compare artist vectors. 
+You can then type in any Spotify artist, their features will be retrieved, aggregated and normalized. The artist will then be compared to every artist in the 1700+ artist data set I have created to find the most similar and provide you recommendations! Cosine similarity is used to compare artist vectors. 
 
 The application is built on Flask and is hosted on AWS Elastic Beastalk.
 
 ## Results of Recommender:
 The recommendations are definitely not perfect, but they are pretty good! You will notice that high level attributes such as genre are picked up on fairly well even though they are not explicitly given as features. 
 
-Of course, if I had access to other users data and streaming history, I could build a much more comprehensive recommender, but I hope you enjoy what I have created for now :) 
+Of course, if I had access to other userss data and streaming history, I could build a much more comprehensive recommender, but I hope you enjoy what I have created for now :) 
 
 -----------
 ## More
