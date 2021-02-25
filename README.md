@@ -12,7 +12,7 @@ Each artists' features are normalized with a MinMax scaler and stored in a csv. 
 
 You can then type in any Spotify artist, their features will be retrieved, aggregated and normalized. The artist will then be compared to every artist in the 1700+ artist data set I have created to find the most similar and provide you recommendations! Cosine similarity is used to compare artist vectors. 
 
-The application is built on Flask and is hosted on AWS Elastic Beastalk.
+The application is with Flask and is hosted on AWS Elastic Beastalk.
 
 ## Results of Recommender:
 The recommendations are definitely not perfect, but they are pretty good! You will notice that high level attributes such as genre are picked up on fairly well even though they are not explicitly given as features. 
