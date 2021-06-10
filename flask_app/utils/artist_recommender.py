@@ -1,9 +1,7 @@
 import pandas as pd
-import numpy as np
 import spotipy
-import spotipy.util as util
 from spotipy.oauth2 import SpotifyClientCredentials
-import os, json, joblib
+import os, joblib
 from sklearn.metrics.pairwise import cosine_similarity
 from operator import itemgetter
 
@@ -32,13 +30,10 @@ class ArtistEvaluator:
             print('Artist not found')
 
 
-
-
     def _get_top_tracks(self, artist_id):
         """
         Retrieve features for an artists top 10 tracks
         """
-
         top = self.sp.artist_top_tracks(artist_id, country='US')['tracks']
         top_tracks = []
         for track in top:
@@ -91,5 +86,5 @@ class ArtistEvaluator:
             score = cosine_similarity(artist_vector,[self.artist_feats.iloc[i,3:].values])
             similarity_dic[self.artist_feats['artist_name'][i]] = score
 
-        top_vals = dict(sorted(similarity_dic.items(), key = itemgetter(1), reverse = True)[:number_recos])
+        top_vals = dict(sorted(similarity_dic.items(), key = itemgetter(1), reverse=True)[:number_recos])
         return top_vals, artist_name

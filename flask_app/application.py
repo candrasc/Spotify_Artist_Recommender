@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request
-import pandas as pd
-from ArtistRecommender import ArtistEvaluator
+from utils.artist_recommender import ArtistEvaluator
 import os
 import numpy as np
-from form_classes import SubmissionForm
 
 application = Flask(__name__)
 
 application.config['SECRET_KEY'] = os.environ.get('SPOTIFY_SECRET_ID')
+
+ae = ArtistEvaluator()
 
 @application.after_request
 def add_header(response):
@@ -24,7 +24,7 @@ def open_form():
 
 @application.route('/', methods=['GET', 'POST'])
 def get_recos():
-    ae = ArtistEvaluator()
+
     artist_name, num_recos = get_info()
     try:
         top_vals, artist_name = ae.find_similar_artists(artist_name, num_recos)
@@ -54,4 +54,4 @@ def get_info():
     return artist_name, num_recos
 
 if __name__ == '__main__':
-	application.run(debug=True, host= '0.0.0.0', port=8080)
+	application.run(debug=True)
