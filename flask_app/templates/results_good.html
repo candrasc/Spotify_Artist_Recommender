@@ -2,13 +2,23 @@
 <html>
   <head>
     <style>
-      #artist_found {
+      .artist_found {
         font-family: Arial, Helvetica, sans-serif;
         color: #3fd144;
       }
 
-      #artist_found:hover {
+      .artist_found:hover {
+        color: blue;
+      }
+
+      .recos {
+        text-decoration: none;
         color: #137a16;
+      }
+
+      .recos:hover {
+        color: blue;
+        font-weight: bolder;
       }
 
       #artists {
@@ -41,18 +51,20 @@
     </style>
   </head>
   <body>
-    <h2 id="artist_found">Spotify Artist Retrieved: {{artist_name}}</h2>
+    <h2><a class = "artist_found" target="_blank" href = {{artist_link}}>Spotify Artist Retrieved: {{artist_name}}</a></h2>
 
-    <table style="width: 400px; border: 1px solid black" id="artists">
+    <table style="width: 600px; border: 1px solid black" id="artists">
       <tr>
         <th>Recommended Artist</th>
         <th>Similarity Score (Cosine Similarity)</th>
       </tr>
+      {% set counter = namespace(value=0) %}
       {% for row in recos %}
       <tr>
         {% for cell in row %}
-        <td>{{cell}}</td>
+        <td><a class="recos" href = {{links[counter.value]}} target="_blank">{{cell}}</a></td>
         {% endfor %}
+        {% set counter.value = counter.value + 1 %}
       </tr>
       {% endfor %}
     </table>
