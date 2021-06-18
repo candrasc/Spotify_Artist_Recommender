@@ -7,7 +7,7 @@ application = Flask(__name__)
 
 application.config['SECRET_KEY'] = os.environ.get('SPOTIFY_SECRET_ID')
 
-ae = ArtistRecommender()
+
 
 @application.after_request
 def add_header(response):
@@ -24,7 +24,7 @@ def open_form():
 
 @application.route('/', methods=['GET', 'POST'])
 def get_recos():
-
+    ae = ArtistRecommender()
     artist_name, num_recos = get_info()
     #try:
     top_vals, artist_name, artist_url = ae.find_similar_artists(artist_name, num_recos)
