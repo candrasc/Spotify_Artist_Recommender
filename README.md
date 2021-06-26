@@ -10,7 +10,7 @@ I then take all of the artists (1700+) in these playlists and retrieve their top
 
 Each artists' features are normalized with sklearn StandardScaler and stored in a csv. The scaler is also pickled and stored for use in the application. In the future, i will set up a database rather than just having a quick and dirty csv to store my data.
 
-When accessing the front end of the application, you can input any Spotify artist, their features for their top songs will be retrieved, aggregated, and normalized. The requested artist will then be compared to every artist in the 1700+ artist data set I have created to find the most similar and provide you recommendations based on cosine similarity between artist vectors. You can then click on the recommended artists to be directed to their spotify page. 
+When accessing the front end of the application, you can input any Spotify artist, their features for their top songs will be retrieved, aggregated, and scaled. The requested artist will then be compared to every artist in the 1700+ artist data set I have created to find the most similar and provide you recommendations based on cosine similarity between artist vectors. You can then click on the recommended artists to be directed to their spotify page. 
 
 The application backend is built with Flask and is hosted on AWS Elastic Beastalk.
 
