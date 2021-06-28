@@ -7,7 +7,6 @@ import pandas as pd
 playlist_uris = ["spotify:playlist:7bLzIyyGRUJw78eHtUZItf"]
 
 
-
 def main():
     """
     This script is used to create our artist data that we can make recommendations from.

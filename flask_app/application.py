@@ -8,16 +8,6 @@ application = Flask(__name__)
 application.config['SECRET_KEY'] = os.environ.get('SPOTIFY_SECRET_ID')
 
 
-
-@application.after_request
-def add_header(response):
-    """
-    Clear cache to reset displayed values
-    """
-    response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
-    response.headers['Cache-Control'] = 'public, max-age=0'
-    return response
-
 @application.route('/')
 def open_form():
     return render_template('submit_form.html')
