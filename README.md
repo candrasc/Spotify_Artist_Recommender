@@ -15,7 +15,7 @@ When accessing the front end of the application, you can input any Spotify artis
 The application backend is built with Flask and is hosted on AWS Elastic Beastalk.
 
 ## Results of Recommender:
-The recommendations are not perfect, but they are definitely better than random! You will notice that high level attributes such as genre are picked up on fairly well even though they are not explicitly given as features. 
+The recommendations are not perfect, but they are definitely better than random! You will notice that high level attributes such as genre are picked up on fairly well even though they are not explicitly given as features. It seems that the playlist I found has a disproportionate amount of Spanish music, which is of course reflected in the recommendations. I will update the data set soon.
 
 Of course, if I had access to other users's data and streaming history, I could build a much more comprehensive recommender, but I hope you enjoy what I have created for now :) 
 
