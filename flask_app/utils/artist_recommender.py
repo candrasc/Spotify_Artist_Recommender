@@ -47,21 +47,26 @@ class ArtistRecommender:
         artist_vector = self.scaler.transform([artist_vector])
 
         scaled = self.artist_feats.copy()
-
-
-        scaled['cosine_sim'] = scaled.iloc[:, 3:].apply(lambda row: cosine_similarity(artist_vector, [row])[0][0],
+        scaled = scaled[scaled['artist']!=artist_name]
+        scaled['cosine_sim'] = scaled.iloc[:, 5:].apply(lambda row: cosine_similarity(artist_vector, [row])[0][0],
                                                         axis=1)
         scaled = scaled.sort_values(by=['cosine_sim'], ascending=False)
 
-        top_vals = {}
+        top_results = list()
         for i in range(number_recos):
             row = scaled.iloc[i]
-            artist = row['artist_name']
-            url = row['url']
-            sim = row['cosine_sim']
-            top_vals[artist] = {'url': url,
-                           'sim': sim}
+            content = {}
+            content['artist'] = row['artist']
+            content['url'] = row['url']
+            content['sim'] = round(row['cosine_sim'], 2)
+            content['img_url'] = row['image_url']
+            content['prev_url'] = row['preview_url']
+            top_results.append(content)
 
         scaled.drop(columns=['cosine_sim'], inplace=True)
 
-        return top_vals, artist_name, og_url
+
+        payload = {'top_results': top_results,
+                    'og_artist_info' : {'artist': artist_name,
+                                        'url': og_url}}
+        return payload

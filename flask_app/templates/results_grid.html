@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Spotify Recommendations</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/results.css') }}"
+    />
+  </head>
+  <body>
+    <!-- <div>
+    <h2>
+      <a class="artist_found" target="_blank" href="{{og_url}}"
+        >Spotify Artist Retrieved: {{artist_name}}</a
+      >
+    </h2>
+  </div> -->
+    <main class="grid">
+      {% for reco in recos %}
+      <article>
+        <img src="{{reco.img_url}}" alt="Sample photo" />
+        <div class="text">
+          <h3>{{reco.artist}}</h3>
+          <a href="{{reco.prev_url}}" target="_blank">
+            <img class="song-preview" src="static/images/play-button.png" />
+          </a>
+        </div>
+        <div class="text">
+          <h4>Simlarity Score: {{reco.sim}}</h4>
+        </div>
+        <div class="text">
+          <a href="{{reco.url}}" target="_blank" class="artist_link"
+            >Go to Artist</a
+          >
+        </div>
+      </article>
+
+      {% endfor %}
+    </main>
+  </body>
+</html>

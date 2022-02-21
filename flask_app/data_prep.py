@@ -4,7 +4,7 @@ import os, joblib
 import pandas as pd
 
 
-playlist_uris = ["spotify:playlist:7bLzIyyGRUJw78eHtUZItf"]
+playlist_uri = "spotify:playlist:5Grz1uNdpfU5xpWzQYVVU4"
 
 
 def main():
@@ -19,15 +19,15 @@ def main():
 
     FF = FeatureFinder(CLIENT_ID, CLIENT_SECRET)
 
-    artist_df = FF.create_artist_df_with_features(playlist_uris)
+    artist_df = FF.create_artist_df_with_features(playlist_uri)
 
     SS = StandardScaler()
 
-    SS.fit(artist_df.iloc[:, 3:])
-    artist_df.iloc[:, 3:] = SS.transform(artist_df.iloc[:, 3:])
+    SS.fit(artist_df.iloc[:, 5:])
+    artist_df.iloc[:, 5:] = SS.transform(artist_df.iloc[:, 5:])
 
     joblib.dump(SS, "MyData/artist_feature_scaler.save")
-    pd.read_csv("MyData/artist_features.csv")
+    artist_df.to_csv("MyData/artist_features.csv", index=False)
 
 if __name__ == '__main__':
     main()

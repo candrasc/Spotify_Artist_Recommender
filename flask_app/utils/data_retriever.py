@@ -12,7 +12,11 @@ from typing import List, Dict
 import os
 
 
+FEATURES = ["danceability", "energy", "key", "loudness", "mode", "speechiness", "acousticness",
+            "instrumentalness", "liveness", "valence", "tempo"]
+
 class FeatureFinder:
+
 
     def __init__(self, client_id, client_secret):
         self.sp = self.__create_spt_connection(client_id, client_secret)
@@ -43,6 +47,22 @@ class FeatureFinder:
             fields="total"
         )["total"]
 
+
+    def _get_artist_info(self, pl_tracks):
+    # input is from sp_instance.playlist_tracks()
+        feats = []
+        for pl_item in pl_tracks["items"]:
+            # Get dict in list
+            try:
+                feat_dic = pl_item["track"]["artists"][0]
+                feat_dic['image_url'] = pl_item['track']['album']['images'][0]['url']
+                feat_dic["preview_url"] = pl_item['track']['preview_url']
+                feats.extend([feat_dic])
+            except Exception as e:
+                print(e)
+        
+        return feats
+
     # Get all the artist info about each track of the playlist.
     def get_tracks_artist_info(self, pl_uri: str) -> List[Dict]:
         artists_info = list()
@@ -62,14 +82,13 @@ class FeatureFinder:
 
             # Get the list with the info about the artists of each track from the\
             # latest batch and append it to the running list
-            [artists_info.extend(pl_item["track"]["artists"])
-             for pl_item in pl_tracks["items"]]
+            feats = self._get_artist_info(pl_tracks)
+            artists_info.extend(feats)
 
             # Update the offset
             offset += len(pl_tracks["items"])
 
         return artists_info
-
 
 
     def _get_top_tracks(self, artist_id):
@@ -92,14 +111,13 @@ class FeatureFinder:
         return df_temp
 
     def _get_song_features(self, songs):
-        features = ["danceability", "energy", "key", "loudness", "mode", "speechiness", "acousticness",
-                     "instrumentalness", "liveness", "valence", "tempo"]
-        df = pd.DataFrame(columns = features)
+
+        df = pd.DataFrame(columns = FEATURES)
         for song in songs:
             spot_feats = self.sp.audio_features(song)[0]
             df_temp = self._create_feature_df(spot_feats)
             df = df.append(df_temp)
-
+        # drop categorical features
         df.drop(columns=['mode', 'key'], inplace=True)
         return df
 
@@ -114,51 +132,51 @@ class FeatureFinder:
 
         return artist_vector
 
-    def create_artist_df_no_features(self, playlist_uris: list) -> pd.DataFrame:
+    def create_artist_df_no_features(self, pl_uri):
 
-        artist_info = []
-        for pl in playlist_uris:
-            artist_info.extend(self.get_tracks_artist_info(pl))
-
-        df = pd.DataFrame(columns=["artist_name", "artist_id", "url"])
-        for ind, feats in enumerate(artist_info):
+        artist_info = self.get_tracks_artist_info(pl_uri)
+        
+        
+        df = pd.DataFrame(columns = ["artist", "artist_id", "url", "image_url", "preview_url"])
+        for feats in artist_info:
             try:
                 artist = feats["name"]
                 art_id = feats["id"]
                 url = feats["external_urls"]["spotify"]
-                df.loc[len(df), :] = [artist, art_id, url]
+                image_url = feats["image_url"]
+                preview_url = feats["preview_url"]
+                df.loc[len(df), :] = [artist, art_id, url, image_url, preview_url]
             except:
                 print(feats["name"])
-
+            
         df = df.drop_duplicates(subset=['artist_id']).reset_index(drop=True)
-
+        
         return df
 
-    def create_artist_df_with_features(self, playlist_uris: list):
+    def create_artist_df_with_features(self, playlist_uris: str):
         """
 
         Args:
-            playlist_uris: list of playlist ids
+            playlist_uris: playist ID
 
         Returns: df of all artists in the playlist and their aggregated features for their top 10 songs
 
         """
 
         artist_df_og = self.create_artist_df_no_features(playlist_uris)
-
         artist_ids = artist_df_og['artist_id']
-        print(artist_ids)
 
         art_feats = []
+        unknown_artists = []
         for i in artist_ids:
             try:
                 feats = self.get_artist_song_feats(i)
-
+                art_feats.append(feats)
             except:
                 print(f'{i} cannot be found')
-                feats = [0 for _ in range(9)]
-
-            art_feats.append(feats)
+                unknown_artists.append(i)
+        artist_df_og = artist_df_og.drop(artist_df_og[artist_df_og['artist_id'].isin(unknown_artists)].index)
+                
         feat_df = pd.DataFrame(art_feats, columns = ["danceability", "energy", "loudness", "speechiness", "acousticness",
                      "instrumentalness", "liveness", "valence", "tempo"])
 

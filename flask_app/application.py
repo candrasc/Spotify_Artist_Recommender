@@ -17,22 +17,12 @@ def get_recos():
     ae = ArtistRecommender()
     artist_name, num_recos = get_info()
     #try:
-    top_vals, artist_name, artist_url = ae.find_similar_artists(artist_name, num_recos)
-    for key in top_vals.keys():
-        if key == artist_name:
-            top_vals, artist_name, _ = ae.find_similar_artists(artist_name, num_recos+1)
-            top_vals.pop(key, None)
+    payload = ae.find_similar_artists(artist_name, num_recos)
+    top_results = payload['top_results']
+    artist_info = payload['og_artist_info']
 
-    top_vals_list = [(k, np.round(float(v['sim']), 3)) for k, v in top_vals.items()]
-    links = [val['url'] for val in top_vals.values()]
-
-    return render_template('results_good.html', name = 'results',
-                            recos=top_vals_list, artist_name=artist_name, artist_link=artist_url,
-                            links=links)
-
-    # except:
-    #     print(artist_name)
-    #     return render_template('error_page.html', name = 'error')
+    return render_template('results_grid.html', name = 'results',
+                            recos=top_results, artist_name=artist_info['artist'], og_url=artist_info['url'])
 
 
 def get_info():
