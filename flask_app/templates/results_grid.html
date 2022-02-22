@@ -23,12 +23,19 @@
         <img src="{{reco.img_url}}" alt="Sample photo" />
         <div class="text">
           <h3>{{reco.artist}}</h3>
-          <a href="{{reco.prev_url}}" target="_blank">
-            <img class="song-preview" src="static/images/play-button.png" />
-          </a>
         </div>
+
         <div class="text">
           <h4>Simlarity Score: {{reco.sim}}</h4>
+        </div>
+        <div class="text">
+          <audio controls>
+            <source
+              class="song-preview"
+              img="static/images/play-button.png"
+              src="{{reco.prev_url}}"
+            />
+          </audio>
         </div>
         <div class="text">
           <a href="{{reco.url}}" target="_blank" class="artist_link"

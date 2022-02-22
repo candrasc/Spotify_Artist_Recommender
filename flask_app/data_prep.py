@@ -27,7 +27,9 @@ def main():
     artist_df.iloc[:, 5:] = SS.transform(artist_df.iloc[:, 5:])
 
     joblib.dump(SS, "MyData/artist_feature_scaler.save")
+    print("Scaler saved")
     artist_df.to_csv("MyData/artist_features.csv", index=False)
+    print("df saved")
 
 if __name__ == '__main__':
     main()

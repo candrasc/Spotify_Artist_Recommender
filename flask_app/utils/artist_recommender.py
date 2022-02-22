@@ -42,13 +42,14 @@ class ArtistRecommender:
         Combines all of the above functions
 
         """
+        import numpy as np
         artist_id, artist_name, og_url = self._get_artist_id(artist_name)
         artist_vector = self.FF.get_artist_song_feats(artist_id)
         artist_vector = self.scaler.transform([artist_vector])
 
         scaled = self.artist_feats.copy()
         scaled = scaled[scaled['artist']!=artist_name]
-        scaled['cosine_sim'] = scaled.iloc[:, 5:].apply(lambda row: cosine_similarity(artist_vector, [row])[0][0],
+        scaled['cosine_sim'] = scaled.iloc[:, 5:].apply(lambda row: np.inner(artist_vector, [row])[0][0],
                                                         axis=1)
         scaled = scaled.sort_values(by=['cosine_sim'], ascending=False)
 
