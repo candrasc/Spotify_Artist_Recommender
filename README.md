@@ -1,6 +1,6 @@
 # Spotify_Artist_Recommender
 --- 
-#### Check out the application here: http://spotifyartistrecommender-v2.eba-mnhqin2v.us-east-2.elasticbeanstalk.com/
+#### Check out the application here: http://spotifyartistrecommender-v2.eba-mnhqin2v.us-east-2.elasticbeanstalk.com/ (Currently not being hosted)
 ---
 ## Summary
 
